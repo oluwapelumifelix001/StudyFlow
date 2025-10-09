@@ -61,7 +61,7 @@ if (form) {
                 btn.textContent = "Creating Account...";
                 setTimeout(() => {
 
-                    window.location.href = "login.html";
+                    window.location.href = "Login.html";
                 }, 2000);
             })
             .catch((error) => {
