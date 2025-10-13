@@ -67,5 +67,28 @@
   </div>
 
   <script src="dashboard.js" type="module"></script>
+      <script>
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+
+    // Open / close when clicking the menu button
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent click from bubbling
+        const isOpen = sidebar.classList.toggle('open');
+        overlay.classList.toggle('show', isOpen);
+    });
+    
+    // Close sidebar when clicking anywhere outside it
+    document.addEventListener('click', (e) => {
+        const clickInsideSidebar = sidebar.contains(e.target);
+        const clickOnMenuButton = toggle.contains(e.target);
+
+        if (!clickInsideSidebar && !clickOnMenuButton) {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>

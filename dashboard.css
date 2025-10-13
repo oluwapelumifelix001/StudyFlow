@@ -160,6 +160,12 @@ body {
 }
 
 /* Responsive Sidebar */
+
+@media (max-width: 500px) {
+  .search-box{
+    display: none;
+  }
+}
 @media (max-width: 900px) {
   .dashboard {
     grid-template-columns: 1fr;
