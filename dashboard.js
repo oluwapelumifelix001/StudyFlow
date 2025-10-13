@@ -33,6 +33,7 @@ onAuthStateChanged(auth, (user) => {
         console.log("User email:", userEmail);
     } else {
         window.location.href = "Login.html";
+        auth.signOut()
     }
 });
 const logout = document.getElementById('logout')
@@ -41,6 +42,7 @@ if(logout){
      logout.textContent = 'Logging Out'  
      setTimeout( () => {
         window.location.href = 'index.html'
+        auth.signOut()
      },2000) 
 }
 )

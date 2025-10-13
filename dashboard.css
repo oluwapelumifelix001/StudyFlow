@@ -1,3 +1,4 @@
+/* 🌤️ General Page Styling */
 * {
   margin: 0;
   padding: 0;
@@ -6,194 +7,221 @@
 }
 
 body {
-  background: #f8fafc;
-  color: #0f172a;
-  overflow-x: hidden;
+  background: linear-gradient(135deg, #d6ecff, #f7fbff);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: all 0.3s ease;
 }
 
 /* Dashboard Layout */
 .dashboard {
-  display: grid;
-  grid-template-columns: 250px 1fr ;
-  height: 100vh;
-  transition: all 0.3s ease;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* Sidebar */
+
+/* =======================
+   SIDEBAR
+========================== */
 .sidebar {
-  background: linear-gradient(to bottom, #60a5fa, #3b82f6);
-  color: white;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem 1rem;
-  position: relative;
-  z-index: 10;
-  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .sidebar-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.3rem;
-  cursor: pointer;
-  display: none;
+.sidebar-header h2 {
+  font-size: 1.4rem;
+  color: #0077cc;
+}
+
+.sidebar nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .sidebar nav a {
-  display: block;
-  color: white;
   text-decoration: none;
-  margin: 1rem 0;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  transition: 0.3s ease;
+  color: #333;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #88caff, #d1e9ff);
+  color: #004a80;
+  transform: translateX(5px);
 }
 
+/* Logout Button */
 .logout {
-  background: #1e3a8a;
-  color: white;
+  margin-top: auto;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #91d2ff, #66b2ff);
   border: none;
-  padding: 0.8rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .logout:hover {
-  background: #172554;
+  background: linear-gradient(135deg, #4eaaff, #0090ff);
 }
 
-/* Main Content */
+/* =======================
+   MAIN CONTENT
+========================== */
 .main-content {
+  flex: 1;
   padding: 2rem;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .topbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  background: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .search-box {
-  padding: 0.6rem 1rem;
-  border: 1px solid #93c5fd;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #b3e0ff;
   outline: none;
+  width: 180px;
 }
 
-/* Content Grid */
+.search-box:focus {
+  border-color: #66b2ff;
+}
+
+
+/* =======================
+   CARDS GRID
+========================== */
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 1.5rem;
 }
 
 .card {
-
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* Progress Circle */
-.progress-ring {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120px;
-}
-
-.circle {
-  width: 100px;
+/* Progress Ring */
+.progress-ring .circle {
   height: 100px;
+  width: 100px;
   border-radius: 50%;
-  background: conic-gradient(#3b82f6 270deg, #e0f2fe 0deg);
+  background: conic-gradient(#4eaaff 270deg, #dceeff 0deg);
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #1e3a8a;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.tasks-card ul {
-  list-style: none;
-}
-
-.tasks-card li {
-  background: #eff6ff;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 0.6rem;
-}
-
-.calendar-card {
-  min-height: 200px;
-  background: #eff6ff;
-  border: 1px dashed #93c5fd;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  color: #2563eb;
+  margin-top: 1rem;
 }
 
-/* Responsive Sidebar */
-
-@media (max-width: 500px) {
-  .search-box{
-    display: none;
-  }
+.progress-ring .circle span {
+  background: white;
+  border-radius: 50%;
+  padding: 15px 20px;
+  font-weight: 700;
+  color: #0077cc;
 }
-@media (max-width: 900px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
 
+/* =======================
+   MOBILE VIEW
+========================== */
+.menu-toggle.mobile {
+  display: none;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 900;
+}
+
+#overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 850px) {
   .sidebar {
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
     height: 100%;
-    width: 250px;
     transform: translateX(-100%);
   }
 
-  .sidebar.active {
+  .sidebar.open {
     transform: translateX(0);
   }
 
-  .menu-toggle {
+  .menu-toggle.mobile {
     display: block;
   }
 
-  .topbar .mobile {
-    display: block;
-    font-size: 1.4rem;
-    background: none;
-    border: none;
-    color: #1e3a8a;
-    cursor: pointer;
+  .main-content {
+    padding: 1.2rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
   }
 }
+@media (max-width: 535px)
+ {
+  .search-box{
+    display: none;
+  }
+ }

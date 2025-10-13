@@ -329,7 +329,7 @@
     </header>
 
     <div class="main">
-        <!-- Sidebar -->
+        <!-- Sidebar4 -->
         <aside class="sidebar" id="sidebar">
             <button id="new-chat-btn">🆕 New Chat</button>
             <button id="save-chat-btn">💾 Save Chat</button>
@@ -341,7 +341,7 @@
         <!-- Chat Area -->
         <section class="chat-container" style="margin:8px  1px;">
             <div id="chat-area"></div>
-            <form id="chat-form" class="chat-input">
+            <form id="chat-form" class="chat-input" style="margin-bottom: 13px;">
                 <textarea id="prompts" placeholder="Ask Study Flow AI..."></textarea>
                 <button type="submit" class="send-btn">Send</button>
             </form>
@@ -356,15 +356,12 @@
     const toggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
 
-
-    // Open / close when clicking the menu button
     toggle.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent click from bubbling
+        e.stopPropagation(); 
         const isOpen = sidebar.classList.toggle('open');
         overlay.classList.toggle('show', isOpen);
     });
     
-    // Close sidebar when clicking anywhere outside it
     document.addEventListener('click', (e) => {
         const clickInsideSidebar = sidebar.contains(e.target);
         const clickOnMenuButton = toggle.contains(e.target);

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StudyFlow Dashboard</title>
   <link rel="stylesheet" href="dashboard.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
+  <!-- Overlay for mobile -->
+  <div id="overlay"></div>
+
   <div class="dashboard">
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2>📘 StudyFlow</h2>
-        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
       </div>
       <nav>
         <a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a>
         <a href="#"><i class="fa-solid fa-list-check"></i> Tasks</a>
-        <a href="#"><i class="fa-solid fa-calendar-days"></i> Planner</a>
+        <a href="./task.html"><i class="fa-solid fa-calendar-days"></i> Planner</a>
         <a href="./ai.html"><i class="fa-solid fa-robot"></i> StudyFlow AI</a>
         <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
       </nav>
@@ -34,8 +36,8 @@
     <!-- Main Content -->
     <main class="main-content">
       <header class="topbar">
-        <button class="menu-toggle mobile"><i class="fa-solid fa-bars"></i></button>
-        <h2  id="welcomeName"></h2>
+        <button class="menu-toggle mobile" id="mobile-toggle" style="background-color: rgb(26, 172, 221); border: none; padding: 5px 7px;border-radius: 6px;">☰</button>
+        <h2 id="welcomeName"></h2>
         <input type="text" placeholder="Search..." class="search-box" />
       </header>
 
@@ -51,7 +53,7 @@
 
         <div class="card tasks-card">
           <h3>Upcoming Tasks</h3>
-          <ul>9
+          <ul>
             <li>Math Assignment 📘</li>
             <li>Read JavaScript Notes 💻</li>
             <li>Group Study at 5PM 👥</li>
@@ -67,28 +69,31 @@
   </div>
 
   <script src="dashboard.js" type="module"></script>
-      <script>
-    const toggle = document.getElementById('menu-toggle');
+  <script>
+    const toggle = document.getElementById('mobile-toggle');
     const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-
-    // Open / close when clicking the menu button
     toggle.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent click from bubbling
-        const isOpen = sidebar.classList.toggle('open');
-        overlay.classList.toggle('show', isOpen);
+      e.stopPropagation();
+      const isOpen = sidebar.classList.toggle('open');
+      overlay.classList.toggle('show', isOpen);
     });
-    
-    // Close sidebar when clicking anywhere outside it
-    document.addEventListener('click', (e) => {
-        const clickInsideSidebar = sidebar.contains(e.target);
-        const clickOnMenuButton = toggle.contains(e.target);
 
-        if (!clickInsideSidebar && !clickOnMenuButton) {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('show');
-        }
+    document.addEventListener('click', (e) => {
+      const clickInsideSidebar = sidebar.contains(e.target);
+      const clickOnMenuButton = toggle.contains(e.target);
+
+      if (!clickInsideSidebar && !clickOnMenuButton) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+      }
     });
-</script>
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
