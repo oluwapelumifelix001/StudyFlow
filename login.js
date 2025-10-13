@@ -69,7 +69,11 @@ if (form) {
                 }
                 else if (error.code === 'auth/popup-closed-by-user') {
                     message.textContent = "Authenthication cancelled by user"
-                } else {
+                }
+                else if (error.code === 'auth/network-request-failed') {
+                    message.textContent = "Connection error"
+                }
+                else {
                     message.textContent = error.message;
                 }
                 message.style.color = "red";
@@ -99,6 +103,9 @@ if (googleBtn) {
                 }
                 else if (error.code === 'auth/popup-closed-by-user') {
                     message.textContent = "Authenthication cancelled by user"
+                }
+                else if (error.code === 'auth/network-request-failed') {
+                    message.textContent = "Connection error"
                 }
                 else {
                     message.textContent = error.message;
@@ -130,6 +137,9 @@ githubBtn.addEventListener("click", () => {
             }
             else if (error.code === 'auth/popup-closed-by-user') {
                 message.textContent = "Authenthication cancelled by user"
+            }
+            else if (error.code === 'auth/network-request-failed') {
+                message.textContent = "Connection error"
             }
             else {
                 message.textContent = error.message;
@@ -166,6 +176,9 @@ twitterBtn.addEventListener("click", () => {
             }
             else if (error.code === 'auth/popup-closed-by-user') {
                 message.textContent = "Authenthication cancelled by user"
+            }
+            else if (error.code === 'auth/network-request-failed') {
+                message.textContent = "Connection error"
             }
             else {
                 message.textContent = error.message;

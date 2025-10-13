@@ -53,6 +53,7 @@ if (form) {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                console.log(userCredential);
                 const btn = document.getElementById("btn");
                 updateProfile(user, { displayName: firstName });
                 message.textContent = "Sign up successful! Welcome, " + user.email;
@@ -72,7 +73,10 @@ if (form) {
                 }
                 else if (error.code === 'auth/popup-closed-by-user') {
                     message.textContent = "Authenthication cancelled by user"
-                } else {
+                } else if (error.code === 'auth/network-request-failed') {
+                    message.textContent = "Connection error"
+                }
+                else {
                     message.textContent = error.message;
                 }
 
@@ -104,6 +108,9 @@ if (googleBtn) {
                 else if (error.code === 'auth/popup-closed-by-user') {
                     message.textContent = "Authenthication cancelled by user"
                 }
+                else if (error.code === 'auth/network-request-failed') {
+                    message.textContent = "Connection error"
+                }
                 else {
                     message.textContent = error.message;
                 }
@@ -134,6 +141,9 @@ githubBtn.addEventListener("click", () => {
             }
             else if (error.code === 'auth/popup-closed-by-user') {
                 message.textContent = "Authenthication cancelled by user"
+            }
+            else if (error.code === 'auth/network-request-failed') {
+                message.textContent = "Connection error"
             }
             else {
                 message.textContent = error.message;
@@ -170,6 +180,9 @@ twitterBtn.addEventListener("click", () => {
             }
             else if (error.code === 'auth/popup-closed-by-user') {
                 message.textContent = "Authenthication cancelled by user"
+            }
+            else if (error.code === 'auth/network-request-failed') {
+                message.textContent = "Connection error"
             }
             else {
                 message.textContent = error.message;

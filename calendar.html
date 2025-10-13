@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow Calendar</title>
+
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .calendar-container {
+      width: 90%;
+      max-width: 1000px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin: 40px auto;
+    }
+
+    #calendar {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    /* StudyFlow blue theme tweaks */
+    .fc .fc-toolbar-title {
+      color: #1679e0;
+      font-weight: 600;
+    }
+
+    .fc .fc-button-primary {
+      background-color: #1679e0;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .fc .fc-button-primary:hover {
+      background-color: #0f5fb5;
+    }
+
+    .fc .fc-daygrid-day-number {
+      color: #333;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-container {
+        width: 95%;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    <h2 style="text-align:center; color:#1679e0;">📅 StudyFlow Planner</h2>
+    <div id="calendar"></div>
+  </div>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          { title: 'Math Assignment', start: '2025-10-09' },
+          { title: 'Study Group', start: '2025-10-12' },
+          { title: 'AI Project Review', start: '2025-10-15' },
+          { title: 'Exam Revision', start: '2025-10-18', end: '2025-10-20' }
+        ],
+        height: 'auto'
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+</html>

@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyFlow Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
 <body>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, reprehenderit corrupti sapiente ab pariatur voluptas reiciendis! Consequuntur laudantium maiores aliquam sequi saepe iure, vel, similique, porro asperiores dolorum sed. Soluta.
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>📘 StudyFlow</h2>
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <nav>
+        <a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#"><i class="fa-solid fa-list-check"></i> Tasks</a>
+        <a href="#"><i class="fa-solid fa-calendar-days"></i> Planner</a>
+        <a href="./ai.html"><i class="fa-solid fa-robot"></i> StudyFlow AI</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      </nav>
+
+      <button class="logout" id="logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle mobile"><i class="fa-solid fa-bars"></i></button>
+        <h2  id="welcomeName"></h2>
+        <input type="text" placeholder="Search..." class="search-box" />
+      </header>
+
+      <section class="content-grid">
+        <div class="card progress-card">
+          <h3>Today's Progress</h3>
+          <div class="progress-ring">
+            <div class="circle">
+              <span>75%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card tasks-card">
+          <h3>Upcoming Tasks</h3>
+          <ul>9
+            <li>Math Assignment 📘</li>
+            <li>Read JavaScript Notes 💻</li>
+            <li>Group Study at 5PM 👥</li>
+          </ul>
+        </div>
+
+        <div class="card calendar-card">
+          <h3>Calendar</h3>
+          <div id="calendar">📅 Coming Soon</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js" type="module"></script>
 </body>
 </html>
