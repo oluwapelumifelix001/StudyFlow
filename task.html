@@ -107,7 +107,7 @@
 
     th, td {
       text-align: left;
-      padding: 12px 15px;
+      padding: 12px 12px;
       border-bottom: 1px solid #eee;
     }
 
@@ -128,7 +128,7 @@
 
     @media (max-width: 600px) {
       .task-form {
-        flex-direction: column;
+        flex-direction: row;
       }
     }
   </style>
@@ -136,17 +136,16 @@
 <body>
 
   <header>
-    <div class="logo">📘 Study Flow - Task Planner</div>
+    <div class="logo">Study Flow - Task Planner</div>
     <button onclick="window.location.href='dashboard.html'" style="background:#3d9cff;color:white;border:none;border-radius:8px;padding:8px 12px;cursor:pointer;">Back</button>
   </header>
-
   <main>
     <h2>Plan Your Study Tasks</h2>
     <form class="task-form" id="taskForm">
       <input type="text" id="subject" placeholder="Enter Subject" required>
       <input type="text" id="topic" placeholder="Enter Topic" required>
       <input type="time" id="time" required>
-      <button type="submit">Add Task</button>
+      <button type="submit" id="submit">Add Task</button>
     </form>
 
     <table id="taskTable">
@@ -163,4 +162,5 @@
       </tbody>
     </table>
   </main>
+  <script src="task.js" type="module"></script>
   </body>
