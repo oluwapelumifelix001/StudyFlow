@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <!-- Overlay for mobile -->
+ 
   <div id="overlay"></div>
 
   <div class="dashboard">
-    <!-- Sidebar -->
+
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2> StudyFlow</h2>
@@ -31,10 +31,10 @@
       </button>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
       <header class="topbar">
-        <button class="menu-toggle mobile" id="mobile-toggle" style="background-color: #1ba0ff; border: none; padding: 5px 7px;border-radius: 6px;">☰</button>
+        <button class="menu-toggle mobile" id="mobile-toggle"
+          style="background-color: #1ba0ff; border: none; padding: 5px 7px;border-radius: 6px;">☰</button>
         <h2 id="welcomeName"></h2>
         <input type="text" placeholder="Search..." class="search-box" />
       </header>
@@ -54,11 +54,22 @@
           <ul id="dashboardTasks" style="list-style: none;"></ul>
 
         </div>
+      </section>
+      <section class="content-grid">
 
         <div class="card calendar-card">
-          <h3>Calendar</h3>
-          <div id="calendar">📅 Coming Soon</div>
+          <h3>Motivation of the day</h3>
+          <div id="Quotes"></div>
+          <p id="author"> </p>
         </div>
+
+        <div class="card notes-card">
+          <h3>📝 Daily Notes</h3>
+          <textarea id="dailyNote" placeholder="Write what you studied today..." rows="3"></textarea>
+          <button id="saveNote">Save Note</button>
+          <p id="savedMessage" style="font-size:0.9rem;color:green;display:none;">Note saved ✅</p>
+        </div>
+
       </section>
     </main>
   </div>
@@ -91,4 +102,5 @@
     });
   </script>
 </body>
+
 </html>
