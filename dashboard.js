@@ -9,7 +9,7 @@ toggles.forEach(btn => {
 
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+import { getDatabase, ref, onValue, push, set } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
 
 
 
@@ -29,7 +29,11 @@ export const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const userName = user.displayName || "User";
+    // const userName = user.displayName;
+    const userName = user.displayName
+      || user.reloadUserInfo?.screenName
+      || "Anonymous";
+
     const userEmail = user.email;
 
 
@@ -70,7 +74,7 @@ onAuthStateChanged(auth, (user) => {
 
         lastThree.forEach((task) => {
           const li = document.createElement("li");
-          li.textContent = `${task.subject} - ${task.topic}  ${task.time}`;
+          li.textContent = `${task.subject} - ${task.topic} - ${task.time}`;
           dashboardTasks.appendChild(li);
         });
       } else {
@@ -97,7 +101,7 @@ onAuthStateChanged(auth, (user) => {
         const allTasks = Object.values(data);
         const total = allTasks.length;
 
-        const percent = Math.min((total / 10) * 100, 100);
+        const percent = Math.min((total / 15) * 100, 100);
 
         circle.style.background = `conic-gradient(#4eaaff ${percent * 3.6}deg, #dceeff 0deg)`;
         percentText.textContent = `${Math.round(percent)}%`;
@@ -116,11 +120,12 @@ onAuthStateChanged(auth, (user) => {
 
 const quotes = async () => {
 
-  const response = await fetch("https://zenquotes.io/api/random");
+  const response = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://zenquotes.io/api/random"));
   const data = await response.json()
+  const parsed = JSON.parse(data.contents);
 
-  const quote = data[0].q;
-  const author = data[0].a;
+  const quote = parsed[0].q;
+  const author = parsed[0].a;
 
   document.getElementById("Quotes").textContent = `"${quote}"`;
   document.getElementById("author").textContent = `"${author}"`;
@@ -128,6 +133,38 @@ const quotes = async () => {
 }
 
 quotes()
+
+const saveBtn = document.getElementById("saveNote");
+const dailyNote = document.getElementById("dailyNote");
+const savedMsg = document.getElementById("savedMessage");
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    saveBtn.addEventListener("click", async () => {
+      const noteText = dailyNote.value.trim();
+      if (noteText === "") return alert("Please write something first ✏️");
+
+      try {
+        const noteRef = ref(database, "notes/" + user.uid);
+        const newNoteRef = push(noteRef);
+        console.log('note saved');
+        await set(newNoteRef, {
+          text: noteText,
+          createdAt: new Date().toISOString(),
+        });
+
+        savedMsg.style.display = "block";
+        dailyNote.value = "";
+        setTimeout(() => (savedMsg.style.display = "none"), 2000);
+      } catch (error) {
+        console.error("Error saving note:", error);
+        alert("❌ Failed to save note.");
+      }
+    });
+  } else {
+    console.log("User not logged in.");
+  }
+});
 
 
 

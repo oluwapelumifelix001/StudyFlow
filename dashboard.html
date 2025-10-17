@@ -10,7 +10,7 @@
 </head>
 
 <body>
- 
+
   <div id="overlay"></div>
 
   <div class="dashboard">
@@ -18,12 +18,14 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2> StudyFlow</h2>
-        <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+
       </div>
       <nav>
         <a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="./studyConnect.html"><i class="fa-solid fa-comments"></i> Study conect</a>
         <a href="./task.html"><i class="fa-solid fa-calendar-days"></i>Tasks Planner</a>
         <a href="./ai.html"><i class="fa-solid fa-robot"></i> StudyFlow AI</a>
+        <a href="./notes.html"><i class="fa-solid fa-book"></i> Your Notes</a>
       </nav>
 
       <button class="logout" id="logout">
@@ -34,14 +36,14 @@
     <main class="main-content">
       <header class="topbar">
         <button class="menu-toggle mobile" id="mobile-toggle"
-          style="background-color: #1ba0ff; border: none; padding: 5px 7px;border-radius: 6px;">☰</button>
-        <h2 id="welcomeName"></h2>
+          style="background-color: #0077cc; border: none; padding: 7px 10px;border-radius: 5px;">☰</button>
+        <h2 id="welcomeName" class="QuotesH3"></h2>
         <input type="text" placeholder="Search..." class="search-box" />
       </header>
 
       <section class="content-grid">
         <div class="card progress-card">
-          <h3>Today's Progress</h3>
+          <h3 class="QuotesH3">Today's Progress</h3>
           <div class="progress-ring">
             <div class="circle">
               <span id="percent"></span>
@@ -50,7 +52,7 @@
         </div>
 
         <div class="card tasks-card">
-          <h3>Upcoming Tasks</h3>
+          <h3 class="QuotesH3">Upcoming Tasks</h3>
           <ul id="dashboardTasks" style="list-style: none;"></ul>
 
         </div>
@@ -58,15 +60,17 @@
       <section class="content-grid">
 
         <div class="card calendar-card">
-          <h3>Motivation of the day</h3>
-          <div id="Quotes"></div>
+          <h3 class="QuotesH3">Motivation of the day</h3>
+          <div id="Quotes"></div> <br>
           <p id="author"> </p>
         </div>
 
         <div class="card notes-card">
-          <h3>📝 Daily Notes</h3>
-          <textarea id="dailyNote" placeholder="Write what you studied today..." rows="3"></textarea>
-          <button id="saveNote">Save Note</button>
+          <h3 class="QuotesH3">📝 Daily Notes</h3>
+          <textarea id="dailyNote" placeholder="  Write what you studied today..." rows="3"
+            style="border: transparent ;border-radius: 5px;outline: none;"></textarea>
+          <br>
+          <button id="saveNote" class="logout">Save Note</button>
           <p id="savedMessage" style="font-size:0.9rem;color:green;display:none;">Note saved ✅</p>
         </div>
 

@@ -3,15 +3,16 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f5f6fa;
+    overflow-x: hidden;
 }
 
 .modal-overlay {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(250, 235, 215, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,10 +100,30 @@ body {
     background: #fff;
 }
 
+.input-group-sig {
+    width: 90%;
+}
+.input-group-sig input {
+        width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fafbfc;
+    transition: border 0.2s;
+
+}
+.input-group-sig input:focus {
+        border: 1.5px solid #4285F4;
+    outline: none;
+    background: #fff;
+
+}
+
 .submit-btn {
     width: 100%;
     padding: 0.75rem;
-    background: linear-gradient(90deg, #4285F4 0%, #34A853 100%);
+    background: linear-gradient(90deg, #4285F4 0%,#d1e9ff 100%);
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -117,7 +138,7 @@ body {
 }
 
 .submit-btn:hover {
-    background: linear-gradient(90deg, #34A853 0%, #4285F4 100%);
+    background: linear-gradient(90deg, #d1e9ff 0%, #4285F4 100%);
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 4px 16px rgba(66, 133, 244, 0.13);
 }
@@ -225,6 +246,20 @@ body {
 .social-btn.twitter:hover {
     background: #e5f6fd;
 }
+.footer {
+    background: linear-gradient(to right, #dbeafe, #bfdbfe);
+    color: #0f172a;
+   
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.footer-bottom {
+    border-top: 1px solid #93c5fd;
+    padding: 1px;
+    font-size: 0.9rem;
+    
+}
+
 
 @keyframes socialPop {
     from {

@@ -21,19 +21,49 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-lg  sticky-top " id="bootNavbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4 fw-bold ms-3" href="#" style="color: #2563EB;font-style:oblique;">StudyFlow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active  fs-5 fw-semibold  px-5" aria-current="page" href="./signup.html"
+                        style="color: #4FA3D1; font-style: oblique;">Home</a>
+                    <a class="nav-link  active fs-5  fw-semibold px-5 " href="./signup.html"
+                        style="color: #4FA3D1; font-style: oblique;">Features</a>
+                    <a class="nav-link active  fs-5  fw-semibold  px-5" href="./signup.html"
+                        style="color: #4FA3D1; font-style: oblique;">Resources</a>
+                    <a class="nav-link active  fs-5  fw-semibold  px-5" href="./signup.html"
+                        style="color: #4FA3D1; font-style: oblique;">Studyflow Ai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
     <header class="hero">
         <div class="overlay"></div>
         <nav class="navbar">
-            <div class="logo"> StudyFlow</div>
-        </nav>
 
+        </nav>
         <div class="hero-content">
-            <div class="hero-logo"><img src="./images/studyflow-high-resolution-logo.png" width="64px"></div>
+            <!-- <div class="hero-logo"><img src="./images/studyflow-high-resolution-logo.png" width="64px"></div> -->
             <div class="animate__animated animate__backInDown">
-                 <h1>Plan smarter, learn better.</h1>
-            <p>Stay organized, boost your productivity, Stay focused, <br> track your growth, and unlock your full
-                academic potential with StudyFlow.</p>
-            <a href="./signup.html" class="cta-btn">Get Started</a>
+                <h1>Plan smarter, learn better.</h1>
+                <p>Stay organized, boost your productivity, Stay focused, <br> track your growth, and unlock your full
+                    academic potential with StudyFlow.</p>
+                <a href="./signup.html" class="cta-btn">Get Started</a>
             </div>
         </div>
     </header>
@@ -70,6 +100,24 @@
         </div>
     </section>
 
+   <div id="sectionote">
+     <section class="note">
+        <div class="note-tex">
+            <h2 style="color: #2563EB; font-style: oblique;">Smart Notes for Smarter Learning</h2> <br>
+            <h5 style="font-style: italic;">
+            Turn your study sessions into meaningful insights. <br> Record your progress, track your ideas,  <br> and keep  your  learning streamlined <br> — all in one clean dashboard  <br>
+            </h5> <br>
+            <button class="note-btn">Get Started</button>
+        </div>
+        <div id="nttimg">
+            <img src="./images/noreeee.png" id="ntimg" style="filter:grayscale(1)"> 
+        </div>
+    </section>
+    <section style="text-align: center; margin: 10px 8px;justify-content: space-between;">
+        <button style="padding: 4px 8px;" id="btn-l" onclick="window.location.href = 'Login.html' "> Login</button> <button style="padding: 4px 8px;" id="btn-s" onclick="window.location.href = 'signup.html' ">Signup</button>
+    </section>
+
+   </div>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
@@ -126,4 +174,5 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

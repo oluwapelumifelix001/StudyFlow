@@ -120,6 +120,7 @@ githubBtn.addEventListener("click", () => {
     const provider = new GithubAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
+            console.log(result);
             const message = document.getElementById("message");
             const user = result.user;
             console.log("GitHub signed in:", user);

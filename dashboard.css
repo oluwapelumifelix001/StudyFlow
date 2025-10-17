@@ -1,4 +1,4 @@
-/* 🌤️ General Page Styling */
+
 * {
   margin: 0;
   padding: 0;
@@ -148,7 +148,7 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* Progress Ring */
+
 .progress-ring .circle {
   height: 100px;
   width: 100px;
@@ -168,9 +168,6 @@ body {
   color: #0077cc;
 }
 
-/* =======================
-   MOBILE VIEW
-========================== */
 .menu-toggle.mobile {
   display: none;
 }
@@ -193,7 +190,31 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+.QuotesH3 {
+  color: #0077cc;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+#dashboardTasks {
+   font-size: 1rem;
+  color: #333;
+  font-style: italic;
+  line-height: 1.6;
+}
 
+#Quotes {
+  font-size: 1rem;
+  color: #333;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+#author {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: #4eaaff;
+  font-size: 0.95rem;
+}
 @media (max-width: 850px) {
   .sidebar {
     position: fixed;
