@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Connect | StudyFlow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #bfdbfe;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #2563EB;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .message {
+      max-width: 15%;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 0.95rem;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background-color: #2563EB;
+      color: white;
+    }
+
+    .message .name {
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      display: flex;
+      padding: 0.8rem;
+      background: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    input {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    button {
+      margin-left: 10px;
+      background-color: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.6rem 1.3rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e4ed8;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.1rem;
+      }
+      .message {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header> <span><a href="./dashboard.html">home</a></span> Study Connect — Global Chat</header>
+
+  <div class="chat-container" id="chatContainer">
+    <div class="message">
+      <div class="name">Oluwapelumi</div>
+      hiii,i need help with biology
+    </div>
+    <div class="message user">
+      <div class="name">You</div>
+      i can help you
+    </div>
+  </div>
+
+  <footer> 
+    <input type="text" id="messageInput" placeholder="Type your message..." />
+    <button id="sendBtn">Send</button>
+  </footer>
+  <script src="connect.js" type="module"></script>
+</body>
+</html>

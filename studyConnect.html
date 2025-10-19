@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Connect | StudyFlow</title>
-  <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyFlow Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
     body {
       margin: 0;
       padding: 0;
@@ -35,7 +38,7 @@
     }
 
     .message {
-      max-width: 15%;
+      max-width: 40%;
       margin-bottom: 10px;
       padding: 10px 14px;
       border-radius: 10px;
@@ -94,12 +97,45 @@
       .message {
         font-size: 0.9rem;
       }
+      #welcomeName{
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <header> <span><a href="./dashboard.html">home</a></span> Study Connect — Global Chat</header>
+  <div id="overlay"></div>
+
+  <div class="dashboard">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2 style="font-style: oblique;"> StudyFlow</h2>
+
+      </div>
+      <nav>
+        <a href="./dashboard.html" ><i class="fa-solid fa-house"></i> Home</a>
+        <a href="./studyConnect.html" class="active"><i class="fa-solid fa-comments"></i> Study conect</a>
+        <a href="./tsk.html"><i class="fa-solid fa-calendar-days"></i>Tasks Planner</a>
+        <a href="./ai.html"><i class="fa-solid fa-robot"></i> StudyFlow AI</a>
+        <a href="./nt.html"><i class="fa-solid fa-book"></i> Your Notes</a>
+      </nav>
+
+      <button class="logout" id="logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </aside>
+
+    <main class="main-content" style="margin: 0;padding: 7px;">
+      <header class="topbar">
+        <button class="menu-toggle mobile" id="mobile-toggle"
+          style="background-color: #0077cc; border: none; padding: 7px 10px;border-radius: 5px;">☰</button>
+        <h2 id="welcomeName" class="QuotesH3" style="vertical-align: center; align-items: center;"></h2>
+      <p style="color: #2563EB;"> Study Connect — Global Chats </p>
+      </header>
+
 
   <div class="chat-container" id="chatContainer">
     <div class="message">
@@ -108,7 +144,7 @@
     </div>
     <div class="message user">
       <div class="name">You</div>
-      i can help you
+      let solve it together
     </div>
   </div>
 
@@ -116,6 +152,40 @@
     <input type="text" id="messageInput" placeholder="Type your message..." />
     <button id="sendBtn">Send</button>
   </footer>
+      
+
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js" type="module"></script>
   <script src="connect.js" type="module"></script>
+  <script>
+    const toggle = document.getElementById('mobile-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = sidebar.classList.toggle('open');
+      overlay.classList.toggle('show', isOpen);
+    });
+
+    document.addEventListener('click', (e) => {
+      const clickInsideSidebar = sidebar.contains(e.target);
+      const clickOnMenuButton = toggle.contains(e.target);
+
+      if (!clickInsideSidebar && !clickOnMenuButton) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+      }
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
+
 </html>

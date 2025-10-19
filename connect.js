@@ -15,12 +15,12 @@ const firebaseConfig = {
 };
 
 
-  // Initialize Firebase
+  
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const auth = getAuth(app);
 
-  // DOM elements
+  
   const chatContainer = document.getElementById("chatContainer");
   const sendBtn = document.getElementById("sendBtn");
   const messageInput = document.getElementById("messageInput");
@@ -30,11 +30,11 @@ const firebaseConfig = {
   // ✅ Check if user is logged in
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      currentUser = user.displayName || user.email || "Anonymous";
+      currentUser = user.displayName || user.email || "user";
     }
   });
 
-  // ✅ Function to send message
+  
   sendBtn.addEventListener("click", () => {
     const message = messageInput.value.trim();
     if (message === "") return;
@@ -49,14 +49,13 @@ const firebaseConfig = {
     messageInput.value = "";
   });
 
-  // ✅ Listen for new messages
+
   const chatRef = ref(db, "studyconnect/messages");
   onChildAdded(chatRef, (snapshot) => {
     const data = snapshot.val();
     displayMessage(data.name, data.text);
   });
-
-  // ✅ Display message in chat container
+  
   function displayMessage(name, text) {
     const div = document.createElement("div");
     div.classList.add("message");
