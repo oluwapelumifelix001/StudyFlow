@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-// Your Firebase config
+
 const firebaseConfig = {
   apiKey: "AIzaSyBwy25TETcpznJ2-rROhCZCcMS4ccSabEc",
   authDomain: "study-flow-d6d80.firebaseapp.com",
@@ -24,7 +24,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const notesRef = ref(db, "notes/" + user.uid);
     onValue(notesRef, (snapshot) => {
-      notesContainer.innerHTML = ""; // clear old notes
+      notesContainer.innerHTML = ""; 
       const notes = snapshot.val();
 
       if (!notes) {

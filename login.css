@@ -3,11 +3,10 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f5f6fa;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .modal-overlay {
-    /* position: fixed; */
     top: 0;
     left: 0;
     width: 100vw;
@@ -19,7 +18,7 @@ body {
     z-index: 1000;
 }
 
-/* Responsive and animated modal */
+
 .auth-modal {
     background: #fff;
     border-radius: 20px;
@@ -103,8 +102,9 @@ body {
 .input-group-sig {
     width: 90%;
 }
+
 .input-group-sig input {
-        width: 100%;
+    width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -113,8 +113,9 @@ body {
     transition: border 0.2s;
 
 }
+
 .input-group-sig input:focus {
-        border: 1.5px solid #4285F4;
+    border: 1.5px solid #4285F4;
     outline: none;
     background: #fff;
 
@@ -123,7 +124,7 @@ body {
 .submit-btn {
     width: 100%;
     padding: 0.75rem;
-    background: linear-gradient(90deg, #4285F4 0%,#d1e9ff 100%);
+    background: linear-gradient(90deg, #4285F4 0%, #d1e9ff 100%);
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -246,18 +247,20 @@ body {
 .social-btn.twitter:hover {
     background: #e5f6fd;
 }
+
 .footer {
     background: linear-gradient(to right, #dbeafe, #bfdbfe);
     color: #0f172a;
-   
+
     text-align: center;
     font-family: "Poppins", sans-serif;
 }
+
 .footer-bottom {
     border-top: 1px solid #93c5fd;
     padding: 1px;
     font-size: 0.9rem;
-    
+
 }
 
 
@@ -273,7 +276,7 @@ body {
     }
 }
 
-/* Responsive styles */
+
 @media (max-width: 600px) {
     .auth-modal {
         max-width: 95vw;

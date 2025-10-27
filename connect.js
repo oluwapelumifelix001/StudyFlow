@@ -1,5 +1,5 @@
 
-  // Import Firebase SDKs
+
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
@@ -26,8 +26,6 @@ const firebaseConfig = {
   const messageInput = document.getElementById("messageInput");
 
   let currentUser = "Anonymous";
-
-  // ✅ Check if user is logged in
   onAuthStateChanged(auth, (user) => {
     if (user) {
       currentUser = user.displayName || user.email || "user";

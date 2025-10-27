@@ -29,7 +29,7 @@
             flex-direction: column;
         }
 
-        /* HEADER */
+
         header {
             background: var(--white);
             box-shadow: 0 2px 5px var(--shadow);
@@ -82,14 +82,14 @@
             /* hidden on desktop */
         }
 
-        /* MAIN AREA */
+
         .main {
             display: flex;
             flex: 1;
             overflow: hidden;
         }
 
-        /* SIDEBAR */
+
         .sidebar {
             background: var(--glass);
             backdrop-filter: blur(12px);
@@ -125,13 +125,13 @@
 
         .sidebar {
             left: -100%;
-            /* hidden off-screen */
+
             transition: 0.3s ease;
         }
 
         .sidebar.open {
             left: 0;
-            /* slide into view */
+
         }
 
 
@@ -157,7 +157,7 @@
             background: var(--light-blue);
         }
 
-        /* CHAT CONTAINER */
+
         .chat-container {
             flex: 1;
             display: flex;
@@ -241,12 +241,121 @@
         button.send-btn:hover {
             background: #3186e7;
         }
-          #user-name{
-                display: block;
+
+        #user-name {
+            display: block;
+        }
+
+        @media screen and (max-width:500px) {
+            .chat-container {
+                width: 90%;
+                max-width: 600px;
+                margin: 40px auto;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .chat-header {
+                background: #2563eb;
+                color: #fff;
+                text-align: center;
+                padding: 15px;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .chat-messages {
+                flex: 1;
+                padding: 15px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .message {
+                background: #e5e7eb;
+                padding: 10px 14px;
+                border-radius: 8px;
+                max-width: 80%;
+                word-wrap: break-word;
+            }
+
+            .message.user {
+                background: #bfdbfe;
+                align-self: flex-end;
+            }
+
+            .chat-input-area {
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+                background: #f9fafb;
+                border-top: 1px solid #e5e7eb;
+            }
+
+            .chat-input-area input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                outline: none;
+            }
+
+            .chat-input-area button {
+                background: #2563eb;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 16px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .chat-input-area button:hover {
+                background: #1e40af;
+            }
+
+            @media (max-width: 600px) {
+                .chat-container {
+                    width: 95%;
+                    margin: 20px auto;
+                }
+
+                .chat-header {
+                    font-size: 1rem;
+                    padding: 12px;
+                }
+
+                .chat-input-area input {
+                    padding: 8px;
+                    font-size: 0.9rem;
+                }
+
+                .chat-input-area button {
+                    padding: 8px 12px;
+                    font-size: 0.9rem;
+                }
+
+                .chat-messages {
+                    padding: 10px;
+                    gap: 8px;
+                }
+
+                .message {
+                    font-size: 0.9rem;
+                    padding: 8px 12px;
+                }
             }
 
 
-        /* RESPONSIVE DESIGN */
+        }
+
+
         @media (max-width: 900px) {
             .sidebar {
                 position: fixed;
@@ -308,13 +417,12 @@
             .chat-container {
                 flex: 1;
             }
-              #user-name{
+
+            #user-name {
                 display: none;
             }
-          
+
         }
-
-
     </style>
 </head>
 
@@ -329,7 +437,7 @@
     </header>
 
     <div class="main">
-        <!-- Sidebar4 -->
+
         <aside class="sidebar" id="sidebar">
             <button id="new-chat-btn">🆕 New Chat</button>
             <button id="save-chat-btn">💾 Save Chat</button>
@@ -353,25 +461,25 @@
     <!-- Link your JS -->
     <script src="ai.js"></script>
     <script>
-    const toggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
 
-    toggle.addEventListener('click', (e) => {
-        e.stopPropagation(); 
-        const isOpen = sidebar.classList.toggle('open');
-        overlay.classList.toggle('show', isOpen);
-    });
-    
-    document.addEventListener('click', (e) => {
-        const clickInsideSidebar = sidebar.contains(e.target);
-        const clickOnMenuButton = toggle.contains(e.target);
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = sidebar.classList.toggle('open');
+            overlay.classList.toggle('show', isOpen);
+        });
 
-        if (!clickInsideSidebar && !clickOnMenuButton) {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('show');
-        }
-    });
-</script>
+        document.addEventListener('click', (e) => {
+            const clickInsideSidebar = sidebar.contains(e.target);
+            const clickOnMenuButton = toggle.contains(e.target);
+
+            if (!clickInsideSidebar && !clickOnMenuButton) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('show');
+            }
+        });
+    </script>
 
 
 </html>

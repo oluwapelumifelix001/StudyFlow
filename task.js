@@ -68,13 +68,13 @@ onAuthStateChanged(auth, (user) => {
 
     onValue(tasksRef, (snapshot) => {
       const data = snapshot.val();
-      taskBody.innerHTML = ""; // Clear table
+      taskBody.innerHTML = "";
 
       if (data) {
         let count = 1;
         Object.entries(data).forEach(([key, task]) => {
           const row = document.createElement("tr");
-          // Check if screen is narrow
+ 
           const isNarrow = window.innerWidth <= 600;
 
           row.innerHTML = `

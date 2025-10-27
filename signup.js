@@ -10,7 +10,7 @@ if (togglePasswordBtn && passwordInput) {
         if (isVisible) {
             passwordInput.type = "text";
             togglePasswordBtn.outerHTML = eyeOff;
-            // Replace the SVG
+            
             togglePasswordBtn.parentElement.innerHTML = eyeOff;
         } else {
             passwordInput.type = "password";
